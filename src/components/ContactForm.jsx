@@ -1,8 +1,8 @@
+// src/components/ContactForm.jsx
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const ContactForm = () => {
-  // Create a reference to the section for in-view detection
   const formRef = React.useRef(null);
   const isInView = useInView(formRef, { once: false, margin: '-50px' });
 
@@ -49,3 +49,5 @@ const ContactForm = () => {
     </motion.div>
   );
 };
+
+export default ContactForm;  // Ensure this is a default export
