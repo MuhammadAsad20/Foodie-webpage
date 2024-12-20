@@ -58,18 +58,22 @@ const Footer = () => {
             Quick Links
           </motion.h3>
           <motion.ul className="space-y-2">
-            {['Privacy Policy', 'Terms of Service', 'Contact'].map((link, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ scale: 1.1, color: '#FF69B4' }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <a href={`/${link.toLowerCase().replace(' ', '-')}`} className="hover:text-pink-400">
-                  {link}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
+  {['Privacy Policy', 'Terms of Service', 'Contact'].map((link, index) => (
+    <motion.li
+      key={index}
+      whileHover={{ scale: 1.1, color: '#FF69B4' }}
+      whileTap={{ scale: 0.9 }}
+    >
+      <a
+        href={`/${link === 'Contact' ? 'Pages/contact' : link.toLowerCase().replace(/ /g, '-')}`}
+        className="hover:text-pink-400"
+      >
+        {link}
+      </a>
+    </motion.li>
+  ))}
+</motion.ul>
+
         </div>
       </div>
 

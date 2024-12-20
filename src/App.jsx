@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext'; // Import the ThemeProvider
+import { CartProvider } from './context/CartContext';
 import Test from './components/Test';
+import Loader from './components/Loader';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
@@ -10,42 +12,35 @@ import TermsOfService from './components/TermsOfServices';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import CartPage from './components/Cart';
 import CustomCursor from './components/Cursor';
+import CheckoutPage from './components/CheckoutPage';
+import OrderConfirmation from './components/OrderConfirmation';
+import AuthPage from './Pages/Auth';
+import ProfilePage from './Pages/Profile';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (item) => {
-    setCartItems((prevItems) => {
-      const itemIndex = prevItems.findIndex((i) => i.id === item.id);
-      if (itemIndex >= 0) {
-        const newItems = [...prevItems];
-        newItems[itemIndex].quantity += item.quantity;
-        return newItems;
-      } else {
-        return [...prevItems, item];
-      }
-    });
-  };
-
-  const removeFromCart = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
+  
   return (
-    <ThemeProvider> {/* Wrap with ThemeProvider */}
-      <Router>
-        <CustomCursor />
-        <Routes>
-          <Route path="/" element={<Test/>} />
-          <Route path="/Pages/Home" element={<Home />} />
-          <Route path="/Pages/About" element={<About />} />
-          <Route path="/Pages/Contact" element={<Contact />} />
-          <Route path="/Pages/Menu" element={<Menu />} />
-          <Route path="/terms-of Service" element={<TermsOfService />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/cart" element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} />} />
-        </Routes>
-      </Router>
+     <ThemeProvider> {/* Wrap with ThemeProvider */}
+      <CartProvider> {/* Wrap with CartProvider */}
+        <Router>
+          <CustomCursor />
+          <Routes>
+            <Route path="/" element={<Loader />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/Pages/home" element={<Home />} />
+            <Route path="/Pages/about" element={<About />} />
+            <Route path="/Pages/contact" element={<Contact />} />
+            <Route path="/Pages/menu" element={<Menu />} />
+            <Route path="/Pages/auth" element={<AuthPage />} />
+            <Route path="/Pages/profile" element={<ProfilePage />} />
+            <Route path="/Pages/cart" element={<CartPage />} />
+            <Route path="/Pages/CheckoutPage" element={<CheckoutPage />}/>
+            <Route path="/Pages/OrderConfirmation" element={<OrderConfirmation />}/>
+            <Route path="/Terms-of-Service" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          </Routes>
+        </Router>
+      </CartProvider>
     </ThemeProvider>
   );
 }

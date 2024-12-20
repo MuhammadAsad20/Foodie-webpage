@@ -7,7 +7,7 @@ const PizzaSVG = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/home');
+      navigate('/Pages/home');
     }, 3000); // 5000 milliseconds = 5 seconds
 
     // Clean up timer if component unmounts
