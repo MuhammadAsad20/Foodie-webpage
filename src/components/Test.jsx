@@ -14,6 +14,7 @@ const QRApp = () => {
       setGeneratedQR(qrCodeURL);
     } catch (err) {
       console.error("Error generating QR code:", err);
+      console.log("ASAD :",import.meta.env.VITE_API_URL);
     }
   };
 
@@ -41,7 +42,6 @@ const QRApp = () => {
   return (
     <div className="min-h-screen text-black bg-gray-100 p-5 flex flex-col items-center">
       <h1 className="text-3xl font-bold text-pink-500 mb-8">QR Code App</h1>
-
       {/* QR Code Generator Section */}
       <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6 mb-10">
         <h2 className="text-xl font-semibold mb-4">Generate QR Code</h2>
@@ -88,6 +88,8 @@ const QRApp = () => {
         <div id="qr-reader" className="mt-4"></div>
       </div>
     </div>
+   
+
   );
 };
 

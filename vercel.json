@@ -1,0 +1,21 @@
+{
+    "rewrites": [
+      { "source": "/Terms-of-Service", "destination": "/" },
+      { "source": "/privacy-policy", "destination": "/" },
+      { "source": "/Pages/home", "destination": "/" },
+      { "source": "/Pages/about", "destination": "/" },
+      { "source": "/Pages/contact", "destination": "/" },
+      { "source": "/Pages/menu", "destination": "/" },
+      { "source": "/Pages/auth", "destination": "/" },
+      { "source": "/Pages/profile", "destination": "/" },
+      { "source": "/Pages/cart", "destination": "/" },
+      { "source": "/Pages/CheckoutPage", "destination": "/" },
+      { "source": "/Pages/OrderConfirmation", "destination": "/" },
+      { "source": "/test", "destination": "/" },
+      { "source": "/", "destination": "/" }
+    ],
+    "redirects": [
+      { "source": "/index.html", "destination": "/", "statusCode": 301 }
+    ]
+  }
+  
